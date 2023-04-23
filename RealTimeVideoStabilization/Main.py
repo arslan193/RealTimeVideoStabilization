@@ -8,6 +8,8 @@ Created on Sun Aug 21 22:51:29 2022
 import cv2
 import numpy as np
 
+from faster import *
+from fastere import *
 
 ### 1. Video Frame Reading
 
@@ -51,6 +53,14 @@ while (cap.isOpened()):
     pts = cv2.KeyPoint.convert(kp)
     
 
+    ahmet()
+    cafafa(3, 4)
+    
+    (corners, scores) = detect(gray_image, 4)
+    # (corners, scores) = faster.detect(gray_image, 0.1) 
+
+
+
     # 2. Mesh Structure For Better Tracking of The Algorithm & Increasing the accuracy 
         # of the Homography Estimation
     
@@ -63,11 +73,12 @@ while (cap.isOpened()):
     # Rest Wıll be determined Later...
 
     cv2.imshow('frame', kp_image)
-
-    if i == 0:
+    if i == 50:
         break
+
     if cv2.waitKey(3) & 0xFF == ord('q'):
         break
+
     
     
     i = i + 1 # Update Frame Number
